@@ -60,7 +60,7 @@ def predict_rental_price_batch():
     predicted_log_prices = model.predict(input_data).tolist()
 
     # Calculate actual prices
-    predicted_prices = [round(float(np.exp(log_price)), 2) for log_price in predicted_log_prices]
+    predicted_prices = [round(float(log_price), 2) for log_price in predicted_log_prices]
 
     # Create a dictionary of predictions with property IDs as keys
     property_ids = input_data['Product_Id'].tolist()  # Assuming 'id' is the property ID column
